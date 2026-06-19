@@ -125,7 +125,7 @@ function SinglePickForm({
     players.forEach((p) => (scores[p.position] = 0))
     scores[selected] = value
 
-    const err = validateScores(round.contract, scores, players.length)
+    const err = validateScores(round.contract as Contract, scores, players.length)
     if (err) { setError(err); return }
 
     setSubmitting(true)
@@ -210,7 +210,7 @@ function CountForm({
     const scores: Record<number, number> = {}
     players.forEach((p) => (scores[p.position] = (counts[p.position] ?? 0) * multiplier))
 
-    const err = validateScores(round.contract, scores, players.length)
+    const err = validateScores(round.contract as Contract, scores, players.length)
     if (err) { setError(err); return }
 
     setSubmitting(true)
@@ -522,7 +522,7 @@ function ReussiteForm({
     scores[first] = -200
     scores[second] = -100
 
-    const err = validateScores(round.contract, scores, players.length)
+    const err = validateScores(round.contract as Contract, scores, players.length)
     if (err) { setError(err); return }
 
     setSubmitting(true)
